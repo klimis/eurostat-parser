@@ -1,7 +1,8 @@
 import pandas as pd
-from eurostatapiclient import  EurostatAPIClient
+from eurostatapiclient import EurostatAPIClient
 
-def eurotstat_client(main_code : str, params ):
+
+def eurotstat_client(main_code: str, params):
     VERSION = 'v2.1'
     FORMAT = 'json'
     # Specify language : en, fr, de
@@ -9,6 +10,7 @@ def eurotstat_client(main_code : str, params ):
 
     client = EurostatAPIClient(VERSION, FORMAT, LANGUAGE)
     dataset = client.get_dataset(main_code)
+
     print(dataset.label)
 
     df1 = client.get_dataset(main_code, params=params)
@@ -17,11 +19,13 @@ def eurotstat_client(main_code : str, params ):
     df = df1.dropna()  # drop row if any value is null
     df.to_csv("./data/eurostat %s.csv" % main_code, index=False)
 
-def splitter(code:str):
+
+def splitter(code: str):
     main_code = code.split('?')[0]
     param_part = code.split('?')[1]
-    params = dict(item.split("=") for item in param_part.split("&")) # split and convert to dict
-    return  main_code, params
+    params = dict(item.split("=") for item in param_part.split("&"))  # split and convert to dict
+    return main_code, params
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
