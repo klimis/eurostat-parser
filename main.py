@@ -1,4 +1,4 @@
-import pandas as pd
+import sys
 from eurostatapiclient import EurostatAPIClient
 
 
@@ -29,7 +29,9 @@ def splitter(code: str):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    main_code, params = splitter("t2020_rd210?na_item=B1GQ&precision=1&unit=EUR_M3_CLV10")
-    eurotstat_client(main_code, params)
-    main_code, params = splitter("t2020_rd310?unit=EUR_KGOE&unit=PPS_KGOE&precision=1")
+    if len(sys.argv) != 2:
+        raise ValueError('Please provide the eurostat api code inside double quotes')
+
+    eurostat_param = sys.argv[1]
+    main_code, params = splitter(eurostat_param)
     eurotstat_client(main_code, params)
