@@ -5,4 +5,4 @@
     pip3 install -r ./requirements.txt
 
 ### Run
-    pip3 install -r ./requirements.txt
+    python main.py "t2020_rd210?na_item=B1GQ&precision=1&unit=EUR_M3_CLV10"
