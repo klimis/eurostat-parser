@@ -1,8 +1,8 @@
 # Eurostat Api parser
-###Install
+### Install
     python3 -m venv venv
     source ./venv/bin/activate
     pip3 install -r ./requirements.txt
 
-###Run
+### Run
     pip3 install -r ./requirements.txt
