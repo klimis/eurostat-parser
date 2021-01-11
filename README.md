@@ -1,3 +1,8 @@
-# eurostat-parser
-./venv/bin/python -m pip freeze > requirements.txt
-./venv/bin/python -m pip freeze > requirements.txt
+# Eurostat Api parser
+###Install
+    python3 -m venv venv
+    source ./venv/bin/activate
+    pip3 install -r ./requirements.txt
+
+###Run
+    pip3 install -r ./requirements.txt
