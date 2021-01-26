@@ -18,7 +18,7 @@ def eurotstat_client(main_code: str, params):
         df1 = df1.to_dataframe()
         df1 = df1[["values", "time", "geo"]]  # keep only this cells
         df = df1.dropna()  # drop row if any value is null
-        df.to_csv("./data/eurostat %s.csv" % main_code, index=False)
+        df.to_csv("./data/%s.csv" % main_code, index=False)
     except:
         e = sys.exc_info()[0]
         print('Error: %s' % str(e) )
